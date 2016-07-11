@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="EmployeeDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="EmployeeDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="EmployeeDataModelStoreContainer">
-          <EntitySet Name="Employees" EntityType="EmployeeDataModel.Store.Employees" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TimeCards" EntityType="EmployeeDataModel.Store.TimeCards" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employees" EntityType="EmployeeDataModel.Store.Employees" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TimeCards" EntityType="EmployeeDataModel.Store.TimeCards" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_EmployeeTimeCard" Association="EmployeeDataModel.Store.FK_EmployeeTimeCard">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="TimeCards" EntitySet="TimeCards" />
@@ -45,8 +45,8 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EmployeeDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="EmployeeDataModelContainer" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="EmployeeDataModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="EmployeeDataModelContainer" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Employees" EntityType="EmployeeDataModel.Employee" />
           <EntitySet Name="TimeCards" EntityType="EmployeeDataModel.TimeCard" />
           <AssociationSet Name="EmployeeTimeCard" Association="EmployeeDataModel.EmployeeTimeCard">
@@ -58,7 +58,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="Name" Nullable="true" />
           <Property Type="DateTime" Name="HireDate" Nullable="false" />
           <NavigationProperty Name="TimeCards" Relationship="EmployeeDataModel.EmployeeTimeCard" FromRole="Employee" ToRole="TimeCard" />
@@ -67,7 +67,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="Int32" Name="Hours" Nullable="false" />
           <Property Type="DateTime" Name="EffectiveDate" Nullable="false" />
         </EntityType>
@@ -79,7 +79,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EmployeeDataModelStoreContainer" CdmEntityContainer="EmployeeDataModelContainer">
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="IsTypeOf(EmployeeDataModel.Employee)">
@@ -111,14 +111,14 @@
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <edmx:Designer>
     <edmx:Connection>
-      <DesignerInfoPropertySet>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
     </edmx:Connection>
     <edmx:Options>
-      <DesignerInfoPropertySet>
+      <DesignerInfoPropertySet xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
@@ -127,7 +127,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="EmployeeDataModel" >
+      <Diagram Name="EmployeeDataModel" xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
         <EntityTypeShape EntityType="EmployeeDataModel.Employee" Width="1.5" PointX="2.125" PointY="1.125" Height="1.59568359375" />
         <EntityTypeShape EntityType="EmployeeDataModel.TimeCard" Width="1.5" PointX="5.125" PointY="1.25" Height="1.59568359375" />
         <AssociationConnector Association="EmployeeDataModel.EmployeeTimeCard">
