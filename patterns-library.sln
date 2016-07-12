@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Decorator", "Decorator", "{CF9828FD-1BFB-4E6A-92FC-FACC8467AF73}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "decorator-pattern-exercise-files", "decorator-pattern-exercise-files", "{CF9828FD-1BFB-4E6A-92FC-FACC8467AF73}"
 	ProjectSection(SolutionItems) = preProject
 		DecoratorDemo\decorator-slides.pdf = DecoratorDemo\decorator-slides.pdf
 	EndProjectSection
