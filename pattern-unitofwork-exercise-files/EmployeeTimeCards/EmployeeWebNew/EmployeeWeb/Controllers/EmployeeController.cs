@@ -6,38 +6,46 @@ using EmployeeDomain;
 using EmployeeDomain.EF;
 using EmployeeWeb.Models;
 
-namespace EmployeeWeb.Controllers {
+namespace EmployeeWeb.Controllers
+{
     // Using the IObjectSet<T> EF implementation
-    public partial class EmployeeController : Controller {
-
-
+    public partial class EmployeeController : Controller
+    {
+        readonly IUnitOfWork _unitOfWork;
         public EmployeeController()
-            : this(new SqlUnitOfWork()) {
+            : this(new SqlUnitOfWork())
+        {
 
         }
 
-        public EmployeeController(IUnitOfWork unitOfWork) {
+        public EmployeeController(IUnitOfWork unitOfWork)
+        {
             _unitOfWork = unitOfWork;
         }
 
         //
         // GET: /Employee/
 
-        public ViewResult Index(string q = null) {
+        public ViewResult Index(string q = null)
+        {
+
             var model = _unitOfWork.Employees
-                                   .OrderBy(e => e.HireDate)                   
-                                   .Include("TimeCards");
-            if(!string.IsNullOrEmpty(q))
+                                       .OrderBy(e => e.HireDate)
+                                       .Include("TimeCards");
+            if (!string.IsNullOrEmpty(q))
             {
-                model = model.Where(e => e.Name.ToLower().Contains(q));
+                //Todo: How  it works & even with a null name & why other tests fail on toList
+                model = model.Where(e => e.Name.ToLower().Contains(q.ToLower()));
             }
+
             return View(model);
         }
 
         //
         // GET: /Employee/Details/5
 
-        public ViewResult Details(int id){ 
+        public ViewResult Details(int id)
+        {
             var employee = _unitOfWork.Employees
                                       .Single(e => e.Id == id);
             return View(employee);
@@ -46,7 +54,8 @@ namespace EmployeeWeb.Controllers {
         //
         // GET: /Employee/Create
 
-        public ViewResult Create() {
+        public ViewResult Create()
+        {
             return View();
         }
 
@@ -54,8 +63,10 @@ namespace EmployeeWeb.Controllers {
         // POST: /Employee/Create
 
         [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Employee newEmployee) {
-            if (ModelState.IsValid) {
+        public ActionResult Create([Bind(Exclude = "Id")] Employee newEmployee)
+        {
+            if (ModelState.IsValid)
+            {
                 _unitOfWork.Employees.AddObject(newEmployee);
                 _unitOfWork.Commit();
                 return RedirectToAction("Index");
@@ -68,7 +79,8 @@ namespace EmployeeWeb.Controllers {
         //
         // GET: /Employee/Edit/5
 
-        public ViewResult Edit(int id) {
+        public ViewResult Edit(int id)
+        {
             var model = _unitOfWork.Employees.Single(e => e.Id == id);
             return View(model);
         }
@@ -77,10 +89,12 @@ namespace EmployeeWeb.Controllers {
         // POST: /Employee/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection) {
+        public ActionResult Edit(int id, FormCollection collection)
+        {
             var model = _unitOfWork.Employees.Single(e => e.Id == id);
             TryUpdateModel(model, new string[] { "Name", "HireDate" });
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 _unitOfWork.Commit();
                 return RedirectToAction("Index");
             }
@@ -91,10 +105,12 @@ namespace EmployeeWeb.Controllers {
         //
         // GET: /Employee/Summary/5
 
-        public ViewResult Summary(int id) {
+        public ViewResult Summary(int id)
+        {
             var model = _unitOfWork.Employees
                 .Where(e => e.Id == id)
-                .Select(e => new EmployeeSummaryViewModel {
+                .Select(e => new EmployeeSummaryViewModel
+                {
                     Name = e.Name,
                     TotalTimeCards = e.TimeCards.Count()
                 })
@@ -102,7 +118,6 @@ namespace EmployeeWeb.Controllers {
 
             return View(model);
         }
-
-        IUnitOfWork _unitOfWork;
+        
     }
 }

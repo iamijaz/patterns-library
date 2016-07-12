@@ -82,7 +82,20 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom\Controllers\EmployeeControllerIndexActionTests.cs" />
+    <Compile Include="Custom\Controllers\EmployeeControllerTestBase.cs" />
+    <Compile Include="Custom\Controllers\WorkerControllerCreateActionGetTests.cs" />
+    <Compile Include="Custom\Controllers\WorkerControllerCreateActionPostTests.cs" />
+    <Compile Include="Custom\Controllers\WorkerControllerEditActionGetTests.cs" />
+    <Compile Include="Custom\Controllers\WorkerControllerEditActionPostTests.cs" />
     <Compile Include="Custom\Controllers\WorkerControllerTests.cs" />
+    <Compile Include="Ef\Controllers\EmployeeControllerCreateActionGetTests.cs" />
+    <Compile Include="Ef\Controllers\EmployeeControllerCreateActionPostTests.cs" />
+    <Compile Include="Ef\Controllers\EmployeeControllerDetailsActionTests.cs" />
+    <Compile Include="Ef\Controllers\EmployeeControllerEditActionGetTests.cs" />
+    <Compile Include="Ef\Controllers\EmployeeControllerEditActionPostTests.cs" />
+    <Compile Include="Ef\Controllers\EmployeeControllerSummaryActionTests.cs" />
+    <Compile Include="Ef\Controllers\EmployeeControllerTestBase.cs" />
     <Compile Include="Ef\Controllers\EmployeeControllerTests.cs" />
     <Compile Include="Extensions\FormCollectionExtensions.cs" />
     <Compile Include="Fakes\EF\InMemoryObjectSet.cs" />

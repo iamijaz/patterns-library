@@ -19,12 +19,12 @@ namespace EmployeeWeb.Controllers
         public WorkerController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _repository = _unitOfWork.Employees;
+            //_repository = _unitOfWork.Employees;
         }        
 
         public ViewResult Index()
         {
-            var model = _repository.FindAll()                                   
+            var model = _unitOfWork.Employees.FindAll()                                   
                                    .OrderBy(e => e.HireDate);
             return View(model);
         }
@@ -32,7 +32,7 @@ namespace EmployeeWeb.Controllers
 
         public ViewResult Details(int id)
         {
-            var model = _repository.FindById(id);
+            var model = _unitOfWork.Employees.FindById(id);
 
             return View(model);
         }
@@ -49,7 +49,7 @@ namespace EmployeeWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repository.Add(newEmployee);                
+                _unitOfWork.Employees.Add(newEmployee);                
                 _unitOfWork.Commit();
                 return RedirectToAction("Index");
             }
@@ -60,8 +60,8 @@ namespace EmployeeWeb.Controllers
       
         public ViewResult Edit(int id)
         {
-            var model = _repository.Find(e => e.Id == id)
-                                   .Single();
+            var employees = _unitOfWork.Employees.Find(e => e.Id == id);
+            var model = employees.Single();
             return View(model);
         }
         
@@ -69,7 +69,7 @@ namespace EmployeeWeb.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            var model = _repository.FindById(id);
+            var model = _unitOfWork.Employees.FindById(id);
             TryUpdateModel(model, new[] { "Name", "HireDate" });
             if (ModelState.IsValid)
             {
@@ -81,6 +81,6 @@ namespace EmployeeWeb.Controllers
         }
 
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IRepository<Employee> _repository;
+        //private readonly IRepository<Employee> _repository;
     }
 }
