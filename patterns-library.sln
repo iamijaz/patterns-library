@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeWeb", "pattern-unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTests", "pattern-unitofwork-exercise-files\EmployeeTimeCards\EmployeeTests\EmployeeTests.csproj", "{95027F36-3D30-4E35-A81D-18C0B92F3CB6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "design-patterns-builder-exercise-files", "design-patterns-builder-exercise-files", "{A9CB5F8A-3EDA-46A1-99B1-E691BCE110A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderDemo", "design-patterns-builder-exercise-files\demos\after\BuilderDemo\BuilderDemo\BuilderDemo.csproj", "{867C8C81-9C26-49F0-8633-278E1A402221}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -126,6 +130,16 @@ Global
 		{95027F36-3D30-4E35-A81D-18C0B92F3CB6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{95027F36-3D30-4E35-A81D-18C0B92F3CB6}.Release|x86.ActiveCfg = Release|Any CPU
 		{95027F36-3D30-4E35-A81D-18C0B92F3CB6}.Release|x86.Build.0 = Release|Any CPU
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Debug|x86.ActiveCfg = Debug|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Debug|x86.Build.0 = Debug|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Release|Any CPU.ActiveCfg = Release|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Release|Mixed Platforms.Build.0 = Release|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Release|x86.ActiveCfg = Release|x86
+		{867C8C81-9C26-49F0-8633-278E1A402221}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +153,7 @@ Global
 		{FAFA922C-7866-4032-A07A-6B65F70D64AB} = {7A39C855-4C1A-470D-972E-7B9962048137}
 		{559B5A3B-EAC7-45AB-BAB7-E05BABF9249F} = {7A39C855-4C1A-470D-972E-7B9962048137}
 		{95027F36-3D30-4E35-A81D-18C0B92F3CB6} = {7A39C855-4C1A-470D-972E-7B9962048137}
+		{867C8C81-9C26-49F0-8633-278E1A402221} = {A9CB5F8A-3EDA-46A1-99B1-E691BCE110A9}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = EmployeeTimeCards.vsmdi
